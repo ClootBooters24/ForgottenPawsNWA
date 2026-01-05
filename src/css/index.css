@@ -5,6 +5,7 @@
 /* Add padding to account for fixed header */
 main {
     padding-top: 80px;
+    padding-bottom: 80px;
     min-height: calc(100vh - 400px);
 }
 
@@ -188,6 +189,17 @@ main {
     font-size: 2rem;
     line-height: 1.4;
     letter-spacing: 0.5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+}
+
+.banner-logo {
+    width: 60px;
+    height: auto;
+    flex-shrink: 0;
 }
 
 /* Urgent Needs */
@@ -421,12 +433,12 @@ main {
 }
 
 .left-block {
-    left: 60px;
+    left: 400px;
     margin-right: 2rem;
 }
 
 .right-block {
-    right: -1600px;
+    right: -1300px;
     margin-left: 2rem;
 }
 
@@ -435,7 +447,7 @@ main {
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-    border: 3px solid var(--accent);
+    border: 15px solid var(--accent);
 }
 
 .block-text {
@@ -525,6 +537,15 @@ main {
     
     .side-block {
         display: none;
+    }
+    
+    .mission-banner {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .banner-logo {
+        width: 40px;
     }
 }
 
