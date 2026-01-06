@@ -67,6 +67,11 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
+.footer-contact address a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .footer-contact p {
     display: flex;
     align-items: flex-start;

@@ -5,6 +5,10 @@
         <priority>1.00</priority>
     </url>
     <url>
+        <loc>https://www.forgottenpawsnwa.org/contact</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
         <loc>https://www.forgottenpawsnwa.org/404</loc>
         <priority>0.01</priority>
     </url>
