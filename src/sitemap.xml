@@ -5,6 +5,19 @@
         <priority>1.00</priority>
     </url>
     <url>
+        <loc>https://www.forgottenpawsnwa.org/volunteer</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://www.forgottenpawsnwa.org/adopt</loc>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://www.forgottenpawsnwa.org/donate</loc>
+        <priority>0.90</priority>
+    </url>
+
+    <url>
         <loc>https://www.forgottenpawsnwa.org/contact</loc>
         <priority>0.80</priority>
     </url>
