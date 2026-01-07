@@ -3,15 +3,15 @@
     <head>
         <!-- Google tag (gtag.js) -->
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <title>Page Not Found | Forgotten Paws of NWA</title>
         <link rel="icon" type="image/x-icon" href="https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"/>
-        <link rel="canonical" href="https://www.forgottenpawsnwa.org"/>
+        <link rel="canonical" href="https://www.forgottenpawsnwa.org/404"/>
         
         <!-- OG Meta -->
-        <meta property="og:site_name" content="Forgotten Paws of NWA"/>
-        <meta property="og:title" content="Home | Forgotten Paws of NWA"/>
+        <meta property="og:site_name" content="Forgotten Paws"/>
+        <meta property="og:title" content="Forgotten Paws of NWA"/>
         <meta property="og:url" content="https://www.forgottenpawsnwa.org"/>
         <meta property="og:type" content="website"/>
         <meta property="og:image" content="https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"/>
@@ -19,7 +19,7 @@
         <meta property="og:image:height" content="1366"/>
 
         <!-- Item Prop -->
-        <meta itemprop="name" content="Forgotten Paws of NWA"/>
+        <meta itemprop="name" content="Home | Forgotten Paws of NWA"/>
         <meta itemprop="url" content="https://www.forgottenpawsnwa.org"/>
         <meta itemprop="thumbnailUrl" content="https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"/>
         <link rel="image_src" href="https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp" />
@@ -81,16 +81,48 @@
             "priceRange": "$"
         }
         </script>
+        
+        <link rel="stylesheet" href="css/headers.css">
+        <link rel="stylesheet" href="css/footers.css">
+        <link rel="stylesheet" href="css/404.css">
+
     </head>
 
     <body>
         <div id="bodyWrapper">
-            <header>
-                <link rel="stylesheet" href="./css/headers.css">
+            <header class="main-header">
+                <div class="container">
+                    <div class="header-content">
+                        <!-- Logo -->
+                        <a href="./index.html" class="logo">
+                            <img src="https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp" alt="Forgotten Paws of NWA Logo" class="logo-img" loading="lazy">
+                            <div class="logo-text">
+                                <span class="logo-title">Forgotten Paws of NWA</span>
+                                <span class="logo-subtitle"></span>
+                            </div>
+                        </a>
+
+                        <!-- Mobile Menu Toggle -->
+                         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                         </button>
+
+                        <!-- Navigation Menu -->
+                         <nav class="main-nav">
+                            <ul>
+                                <li><a href="./index.html" class="active">Home</a></li>
+                                <li><a href="./gallery.html">Gallery</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="#donate" class="btn-donate">Donate</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </header>
 
             <main>
-                <link rel="stylesheet" href="./css/404.css">
                 <div class="error404-container">
                     <div class="error404-content">
                         <h1>404</h1>
@@ -101,16 +133,51 @@
                 </div>
             </main>
 
-            <footer>
-                <link rel="stylesheet" href="./css/footers.css">
-                <h4 class="footer-title">Forgotten Paws</h4>
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-info">
+                            <div class="footer-logo">
+                                <img src="https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp" alt="Forgotten Paws of NWA Logo" class="footer-logo-img" loading="lazy">
+                                <div>
+                                    <h4>Forgotten Paws of NWA</h4>
+                                </div>
+                            </div>
+                            <p class="footer-mission">Giving forgotten dogs a safe place to land and a real chance at a better life.</p>
+                        </div>
+                        
+                        <div class="footer-contact">
+                            <h4>Contact Us</h4>
+                            <address>
+                                <p>3851 Old Highway 68, Tontitown, AR 72762</p>
+                                <p>Phone: <a href="tel:+14797703766">479-770-3766</a></p>
+                                <p>Email: <a href="mailto:forgottenpawsnwa@gmail.com">forgottenpawsnwa@gmail.com</a></p>
+                            </address>
+                        </div>
 
-                <p>&copy; <span id="copyright-year"></span> Forgotten Paws. All rights reserved.</p>
-                <p class="creatorNote">
-                    <a href="https://ClootBooters24.github.io" target="_blank" rel="noopener">Built by Clayton Warstler</a>
-                </p>
+                        <div class="footer-links">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="./index.html">Home</a></li>
+                                <li><a href="./gallery.html">Gallery</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="#donate">Donate</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <p>&copy; <span id="copyright-year"></span> FOR LUV OF FORGOTTEN PAWS (DBA Forgotten Paws of NWA). All rights reserved.</p>
+                        <p>EIN: 39-4747707 • 501(c)(3) Nonprofit Organization • 100% Volunteer-Run</p>
+
+                        <p class="creatorNote">
+                            <a href="https://ClootBooters24.github.io" target="_blank" rel="noopener">Built by Clayton Warstler</a>
+                        </p>
+                    </div>
+                </div>
             </footer>
+
         </div>
-        <script src="./js/index.js"></script>
+        <script src="js/index.js"></script>
     </body>
 </html>

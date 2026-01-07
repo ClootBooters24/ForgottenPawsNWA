@@ -1,0 +1,114 @@
+/* ===== 404 Page Styles ===== */
+
+/* Account for fixed header */
+main {
+	padding-top: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.error404-container {
+	width: 100%;
+	padding: 2rem 1.5rem;
+}
+
+.error404-content {
+	max-width: 720px;
+	margin: 0 auto;
+	background: var(--white);
+	color: var(--text-primary);
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(43, 42, 33, 0.08);
+	padding: 2.5rem;
+	text-align: center;
+}
+
+.error404-content h1 {
+	font-size: 5.5rem;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: 2px;
+	color: var(--accent);
+	margin-bottom: 0.5rem;
+}
+
+.error404-content h2 {
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--text-primary);
+	margin-bottom: 1rem;
+}
+
+.error404-content p {
+	font-size: 1rem;
+	color: var(--text-accent);
+	margin: 0 auto 1.75rem;
+	max-width: 52ch;
+}
+
+.home-btn {
+	display: inline-block;
+	background-color: var(--accent);
+	color: var(--white);
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.75rem 1.5rem;
+	border-radius: 999px;
+	transition: var(--transition);
+}
+
+.home-btn:hover {
+	background-color: #6B6B5C;
+	transform: translateY(-2px);
+}
+
+.home-btn:focus-visible {
+	outline: 3px solid rgba(124, 124, 108, 0.35);
+	outline-offset: 3px;
+}
+
+/* Subtle decorative background for the card */
+.error404-content {
+	background-image: radial-gradient(rgba(124, 124, 108, 0.06) 1px, transparent 1px);
+	background-size: 12px 12px;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 992px) {
+	.error404-content h1 {
+		font-size: 4.75rem;
+	}
+}
+
+@media (max-width: 768px) {
+	main {
+		padding-top: 90px;
+	}
+	.error404-content {
+		padding: 2rem;
+	}
+	.error404-content h1 {
+		font-size: 4rem;
+	}
+	.error404-content h2 {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 576px) {
+	main {
+		padding-top: 80px;
+	}
+	.error404-container {
+		padding: 1.25rem 1rem;
+	}
+	.error404-content {
+		border-radius: 12px;
+		padding: 1.5rem;
+	}
+	.error404-content h1 {
+		font-size: 3.25rem;
+	}
+}
+

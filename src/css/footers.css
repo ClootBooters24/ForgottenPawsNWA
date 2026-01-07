@@ -140,6 +140,18 @@
         gap: 2rem;
         text-align: center;
     }
+    .main-footer {
+        padding: 2.5rem 0 1.5rem;
+        margin-top: 3rem;
+    }
+    .footer-mission {
+        font-size: 0.95rem;
+    }
+    .footer-contact address,
+    .footer-links a,
+    .footer-bottom {
+        font-size: 0.95rem;
+    }
     
     .footer-logo {
         justify-content: center;
@@ -147,5 +159,18 @@
     
     .footer-contact p {
         justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 2rem 0 1.25rem;
+        margin-top: 2.5rem;
+    }
+    .footer-content {
+        gap: 1.5rem;
+    }
+    .footer-bottom {
+        padding-top: 1.5rem;
     }
 }

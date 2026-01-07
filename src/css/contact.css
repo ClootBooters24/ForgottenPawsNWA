@@ -1,0 +1,116 @@
+/* ===== Contact Page ===== */
+
+/* Layout */
+main {
+    padding: 110px 0 80px;
+    min-height: calc(100vh - 320px);
+    background: var(--bg-primary);
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--white);
+    color: var(--text-primary);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(43, 42, 33, 0.08);
+    padding: 2.5rem 2.75rem;
+}
+
+.contact-container h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-container h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+}
+
+.contact-container p {
+    color: var(--text-accent);
+    margin-bottom: 1.5rem;
+    max-width: 70ch;
+}
+
+.contact-info,
+.social-media-links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.contact-info li,
+.social-media-links li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-info strong {
+    display: inline-block;
+    min-width: 90px;
+    color: var(--text-primary);
+}
+
+.contact-container a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-container a:hover {
+    color: #6B6B5C;
+}
+
+.contact-container a:focus-visible {
+    outline: 3px solid rgba(124, 124, 108, 0.35);
+    outline-offset: 3px;
+}
+
+/* Accent pill for social links */
+.social-media-links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(124, 124, 108, 0.12);
+    border-radius: 999px;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+    main {
+        padding: 96px 0 70px;
+    }
+    .contact-container {
+        padding: 2rem 1.75rem;
+    }
+    .contact-container h1 {
+        font-size: 2rem;
+    }
+    .contact-container h2 {
+        font-size: 1.35rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 88px 0 64px;
+    }
+    .contact-container {
+        padding: 1.5rem 1.25rem;
+        border-radius: 12px;
+    }
+    .contact-container h1 {
+        font-size: 1.75rem;
+    }
+    .contact-container h2 {
+        font-size: 1.25rem;
+    }
+    .contact-info strong {
+        min-width: 0;
+        margin-right: 0.4rem;
+    }
+}

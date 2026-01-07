@@ -8,11 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     
+    const closeNav = () => {
+        if (!mainNav) return;
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+        document.body.classList.remove('nav-open');
+    };
+
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', function() {
             this.classList.toggle('active');
             mainNav.classList.toggle('active');
-            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+            const isOpen = mainNav.classList.contains('active');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            document.body.classList.toggle('nav-open', isOpen);
         });
     }
     
@@ -21,11 +31,27 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (mobileMenuToggle) {
-                mobileMenuToggle.classList.remove('active');
-                mainNav.classList.remove('active');
-                document.body.style.overflow = '';
+                closeNav();
             }
         });
+    });
+
+    // Close mobile nav when clicking outside the panel
+    document.addEventListener('click', (event) => {
+        if (!mainNav || !mobileMenuToggle) return;
+        const navOpen = mainNav.classList.contains('active');
+        const clickedToggle = mobileMenuToggle.contains(event.target);
+        const clickedNav = mainNav.contains(event.target);
+        if (navOpen && !clickedToggle && !clickedNav) {
+            closeNav();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeNav();
+        }
     });
     
     // Smooth scroll for anchor links
