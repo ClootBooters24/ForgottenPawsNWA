@@ -21,6 +21,20 @@
         <loc>https://www.forgottenpawsnwa.org/contact</loc>
         <priority>0.80</priority>
     </url>
+    
+    <url>
+        <loc>https://www.forgottenpawsnwa.org/legal/terms</loc>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://www.forgottenpawsnwa.org/legal/privacy</loc>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://www.forgottenpawsnwa.org/legal/volunteer-code-of-conduct</loc>
+        <priority>0.70</priority>
+    </url>
+
     <url>
         <loc>https://www.forgottenpawsnwa.org/404</loc>
         <priority>0.01</priority>

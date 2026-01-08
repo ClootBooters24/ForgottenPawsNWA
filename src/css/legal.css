@@ -1,0 +1,67 @@
+/* ===== Legal Pages ===== */
+
+/* Layout */
+.legal-container {
+    padding: 120px 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    background: transparent;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.legal-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.legal-meta {
+    color: var(--text-accent);
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+}
+
+.legal-content p {
+    margin: 0 0 1rem 0;
+}
+
+.legal-section {
+    margin: 1.25rem 0 1.5rem 0;
+}
+
+.legal-section h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.legal-section h3 {
+    margin: 0.6rem 0 0.4rem 0;
+    font-size: 1rem;
+}
+
+.legal-list {
+    margin-left: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Make long documents readable */
+.legal-content {
+    word-wrap: break-word;
+}
+
+/* Print-friendly tweaks */
+@media print {
+    header, footer, .mobile-menu-toggle, .btn-donate { display: none !important; }
+    .legal-container { padding: 20px; max-width: 100%; }
+}
+
+/* Small helper for editors: visually highlight placeholder area (only in dev) */
+.legal-placeholder {
+    border-left: 4px dashed rgba(124,124,108,0.25);
+    padding: 0.75rem 1rem;
+    background: rgba(124,124,108,0.03);
+    color: var(--text-accent);
+}

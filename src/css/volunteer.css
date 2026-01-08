@@ -1,0 +1,445 @@
+/* ===== Volunteer Page ===== */
+
+/* Layout */
+main {
+    padding: 110px 0 80px;
+    min-height: calc(100vh - 320px);
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.volunteer-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    color: var(--text-primary);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(43, 42, 33, 0.08);
+    padding: 1.5rem 1.75rem;
+}
+
+.volunteer-container h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.volunteer-container h2 {
+    font-size: 1.1rem;
+    margin: 1.35rem 0 0.7rem;
+    color: var(--text-primary);
+}
+
+.volunteer-container h2:first-of-type {
+    margin-top: 0;
+}
+
+.volunteer-container > p {
+    color: var(--text-accent);
+    margin-bottom: 1.5rem;
+    max-width: 70ch;
+}
+
+/* Volunteer Opportunities Section */
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.opportunity-card {
+    padding: 1.5rem;
+    background: rgba(124, 124, 108, 0.05);
+    border: 1px solid rgba(124, 124, 108, 0.15);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.opportunity-card:hover {
+    background: rgba(124, 124, 108, 0.1);
+    border-color: rgba(124, 124, 108, 0.25);
+    box-shadow: 0 5px 15px rgba(43, 42, 33, 0.08);
+}
+
+.opportunity-card h3 {
+    font-size: 1rem;
+    margin: 0 0 0.75rem 0;
+    color: var(--text-primary);
+}
+
+.opportunity-card p {
+    font-size: 0.95rem;
+    color: var(--text-accent);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Form Styling */
+.volunteer-form {
+    margin: 2rem 0;
+}
+
+fieldset {
+    border: none;
+    padding: 1.5rem 0;
+    margin: 0;
+    border-top: 1px solid rgba(124, 124, 108, 0.15);
+}
+
+fieldset:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+legend {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.required {
+    color: #c41e3a;
+}
+
+.optional {
+    color: var(--text-accent);
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    border: 1px solid rgba(124, 124, 108, 0.25);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: var(--white);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(124, 124, 108, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(124, 124, 108, 0.6);
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+/* Form Row for Side-by-side Fields */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.checkbox-item input[type="checkbox"],
+.checkbox-item input[type="radio"] {
+    width: auto;
+    margin: 0.35rem 0 0 0;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.checkbox-item label {
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+    padding-top: 0.1rem;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-submit,
+.btn-reset {
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.btn-submit:hover {
+    background: #6B6B5C;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(124, 124, 108, 0.25);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-submit:focus-visible {
+    outline: 3px solid rgba(124, 124, 108, 0.35);
+    outline-offset: 2px;
+}
+
+.btn-reset {
+    background: rgba(124, 124, 108, 0.1);
+    color: var(--text-primary);
+    border: 1px solid rgba(124, 124, 108, 0.25);
+}
+
+.btn-reset:hover {
+    background: rgba(124, 124, 108, 0.15);
+    border-color: rgba(124, 124, 108, 0.4);
+}
+
+.btn-reset:focus-visible {
+    outline: 3px solid rgba(124, 124, 108, 0.35);
+    outline-offset: 2px;
+}
+
+.form-note {
+    background: rgba(124, 124, 108, 0.05);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--text-accent);
+    margin: 1.5rem 0 0 0;
+}
+
+.form-note strong {
+    color: var(--text-primary);
+}
+
+/* FAQ Section */
+.volunteer-faq {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(124, 124, 108, 0.15);
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-item h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.faq-item p {
+    margin: 0;
+    color: var(--text-accent);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+    main {
+        padding: 96px 0 70px;
+        gap: 1.5rem;
+    }
+    
+    .volunteer-container {
+        padding: 1.75rem 1.5rem;
+    }
+    
+    .volunteer-container h1 {
+        font-size: 1.75rem;
+    }
+    
+    .volunteer-container h2 {
+        font-size: 1.2rem;
+        margin-top: 1.35rem;
+    }
+
+    .opportunities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-reset {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 88px 0 64px;
+        gap: 1.25rem;
+    }
+    
+    .volunteer-container {
+        padding: 1.35rem 1.1rem;
+        border-radius: 12px;
+    }
+    
+    .volunteer-container h1 {
+        font-size: 1.55rem;
+    }
+    
+    .volunteer-container h2 {
+        font-size: 1.1rem;
+    }
+
+    .opportunities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem 0.75rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn-submit,
+    .btn-reset {
+        width: 100%;
+        padding: 0.8rem 1rem;
+    }
+
+    .form-note {
+        padding: 0.875rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Modal (submission) styles */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+    padding: 1.25rem;
+}
+.modal[aria-hidden="false"] {
+    display: flex;
+}
+.modal-open {
+    overflow: hidden;
+}
+.modal-dialog {
+    background: var(--white);
+    max-width: 520px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(43,42,33,0.18);
+    padding: 1.25rem 1.35rem;
+    position: relative;
+    transform: translateY(-6px);
+    transition: transform 220ms ease, opacity 220ms ease;
+}
+.modal.success .modal-dialog {
+    border-left: 6px solid var(--accent);
+}
+.modal.error .modal-dialog {
+    border-left: 6px solid #c41e3a;
+}
+.modal-close {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+.modal h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+.modal p {
+    margin: 0;
+    color: var(--text-accent);
+    line-height: 1.5;
+}
+
+/* subtle backdrop effect */
+.modal::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 9, 14, 0.45);
+    z-index: -1;
+}
