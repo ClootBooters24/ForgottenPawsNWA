@@ -3,7 +3,7 @@
 main {
     padding: 110px 0 80px;
     min-height: calc(100vh - 320px);
-    background: var(--bg-primary);
+    background: var(--white);
 }
 
 .page-shell {
