@@ -56,14 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Check if event should be displayed
     function shouldDisplayEvent(event) {
-        // Don't show cancelled or completed events
-        if (['cancelled', 'completed'].includes(event.status)) {
-            return false;
-        }
-        
-        // Only show events with valid status
-        const validStatuses = ['confirmed', 'pending', 'tentative'];
-        if (event.status && !validStatuses.includes(event.status)) {
+        // Only show confirmed events
+        if (event.status !== 'confirmed') {
             return false;
         }
         
@@ -229,60 +223,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Show specific event in carousel
-    function showEvent(index) {
+    function showEvent(index, direction = 'right') {
         if (isAnimating || upcomingEvents.length === 0) return;
         
         isAnimating = true;
         
-        // Remove previous/next classes from all cards
+        // Get all cards
         const allCards = document.querySelectorAll('.event-card');
+        const previousCard = document.querySelector('.event-card.active');
+        const nextCard = document.querySelector(`.event-card[data-index="${index}"]`);
+        
+        // Remove previous card with slide out animation
+        if (previousCard) {
+            previousCard.classList.remove('active', 'slide-from-left', 'slide-from-right');
+            if (direction === 'right') {
+                previousCard.classList.add('slide-out-left');
+            } else {
+                previousCard.classList.add('slide-out-right');
+            }
+        }
+        
+        // Clean up all other cards
         allCards.forEach(card => {
-            card.classList.remove('active', 'prev', 'next');
+            if (card !== previousCard && card !== nextCard) {
+                card.classList.remove('active', 'slide-from-left', 'slide-from-right', 'slide-out-left', 'slide-out-right');
+            }
         });
         
-        // Get the current, previous, and next cards
-        const prevIndex = (index - 1 + upcomingEvents.length) % upcomingEvents.length;
-        const nextIndex = (index + 1) % upcomingEvents.length;
-        
-        const prevCard = document.querySelector(`.event-card[data-index="${prevIndex}"]`);
-        const currentCard = document.querySelector(`.event-card[data-index="${index}"]`);
-        const nextCard = document.querySelector(`.event-card[data-index="${nextIndex}"]`);
-        
-        // Add appropriate classes
-        if (prevCard) prevCard.classList.add('prev');
-        if (currentCard) currentCard.classList.add('active');
-        if (nextCard) nextCard.classList.add('next');
+        // Activate and animate the new card
+        if (nextCard) {
+            nextCard.classList.remove('slide-out-left', 'slide-out-right');
+            nextCard.classList.add('active');
+            if (direction === 'right') {
+                nextCard.classList.add('slide-from-right');
+            } else {
+                nextCard.classList.add('slide-from-left');
+            }
+        }
         
         // Update current index and navigation
         currentEventIndex = index;
-        // updateNavigation();
         updateDotIndicators();
         
-        // Reset animation flag after animation completes
+        // Reset animation flag and clean up after animation completes
         setTimeout(() => {
+            if (previousCard) {
+                previousCard.classList.remove('slide-out-left', 'slide-out-right');
+            }
             isAnimating = false;
-        }, 600);
+        }, 500);
     }
-    
-    // Update navigation buttons and counter
-    // function updateNavigation() {
-    //     const totalEvents = upcomingEvents.length;
-        
-    //     if (totalEvents > 0) {
-    //         // Update counter
-    //         currentEventSpan.textContent = currentEventIndex + 1;
-    //         totalEventsSpan.textContent = totalEvents;
-            
-    //         // Enable/disable navigation buttons
-    //         prevBtn.disabled = currentEventIndex === 0;
-    //         nextBtn.disabled = currentEventIndex === totalEvents - 1;
-    //     } else {
-    //         currentEventSpan.textContent = '0';
-    //         totalEventsSpan.textContent = '0';
-    //         prevBtn.disabled = true;
-    //         nextBtn.disabled = true;
-    //     }
-    // }
     
     // Create dot indicators
     function createDotIndicators() {
@@ -298,7 +288,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             dot.addEventListener('click', () => {
                 if (!isAnimating && i !== currentEventIndex) {
-                    showEvent(i);
+                    const direction = i > currentEventIndex ? 'right' : 'left';
+                    showEvent(i, direction);
                     restartAutoAdvance();
                 }
             });
@@ -343,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stopAutoAdvance();
             autoAdvanceInterval = setInterval(() => {
                 const nextIndex = (currentEventIndex + 1) % upcomingEvents.length;
-                showEvent(nextIndex);
+                showEvent(nextIndex, 'right');
             }, 8000); // Advance every 8 seconds
         }
     }
@@ -362,35 +353,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // // Event Listeners
-    // prevBtn.addEventListener('click', () => {
-    //     if (currentEventIndex > 0) {
-    //         showEvent(currentEventIndex - 1);
-    //         restartAutoAdvance();
-    //     }
-    // });
-    
-    // nextBtn.addEventListener('click', () => {
-    //     if (currentEventIndex < upcomingEvents.length - 1) {
-    //         showEvent(currentEventIndex + 1);
-    //         restartAutoAdvance();
-    //     }
-    // });
-    
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
+        if (upcomingEvents.length === 0) return;
+        
         if (e.key === 'ArrowLeft') {
-            showEvent(currentEventIndex - 1);
+            const prevIndex = (currentEventIndex - 1 + upcomingEvents.length) % upcomingEvents.length;
+            showEvent(prevIndex, 'left');
             restartAutoAdvance();
         } else if (e.key === 'ArrowRight') {
-            showEvent(currentEventIndex + 1);
+            const nextIndex = (currentEventIndex + 1) % upcomingEvents.length;
+            showEvent(nextIndex, 'right');
             restartAutoAdvance();
-        }
-        else if (currentEventIndex < 0) {
-            showEvent(currentEventIndex.length - 1);
-        }
-        else if (currentEventIndex >= upcomingEvents.length) {
-            showEvent(0);
         }
     });
     

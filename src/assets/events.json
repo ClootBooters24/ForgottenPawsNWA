@@ -1,58 +1,5 @@
 {
   "events": [
-    {
-      "name": "Adoption Day at PetSmart",
-      "date": "2026-01-18",
-      "time": "10:00 AM - 2:00 PM",
-      "location": "PetSmart, Fayetteville",
-      "description": "Meet adoptable dogs and learn about fostering opportunities. All adoption fees waived for approved applications.",
-      "link": "https://facebook.com/forgottenpawsnwa",
-      "status": "confirmed"
-    },
-    {
-      "name": "Volunteer Orientation",
-      "date": "2026-01-25",
-      "time": "6:00 PM - 7:30 PM",
-      "location": "Forgotten Paws Shelter, Tontitown",
-      "description": "Learn how to become a volunteer. Must be 18+ or accompanied by parent. Tour included.",
-      "link": "./contact.html",
-      "status": "confirmed"
-    },
-    {
-      "name": "Winter Fundraiser Bake Sale",
-      "date": "2026-02-07",
-      "time": "9:00 AM - 4:00 PM",
-      "location": "Springdale Farmer's Market",
-      "description": "Homemade treats with all proceeds going to veterinary care for our dogs.",
-      "link": "",
-      "status": "cancelled"
-    },
-    {
-      "name": "Yoga with Rescue Dogs",
-      "date": "2026-02-15",
-      "time": "9:00 AM - 10:00 AM",
-      "location": "Community Center, Tontitown",
-      "description": "Gentle yoga session with adoptable dogs. $15 donation suggested. All skill levels welcome.",
-      "link": "",
-      "status": "tentative"
-    },
-    {
-      "name": "Valentine's Adoption Special",
-      "date": "2026-02-14",
-      "time": "11:00 AM - 5:00 PM",
-      "location": "Forgotten Paws Shelter",
-      "description": "Reduced adoption fees for all dogs. Find your furry valentine!",
-      "link": "./adopt.html",
-      "status": "confirmed"
-    },
-    {
-      "name": "Test Event Today",
-      "date": "2026-01-11",
-      "time": "2:00 PM - 4:00 PM",
-      "location": "Test Location",
-      "description": "This event is today and should show as confirmed.",
-      "link": "",
-      "status": "confirmed"
-    }
+
   ]
 }
