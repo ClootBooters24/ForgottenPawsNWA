@@ -172,6 +172,67 @@ body {
 }
 
 /* ==== Mobile Queries ==== */
+@media (max-width: 966px) {
+    body.nav-open::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 900;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    .main-header {
+        padding: 0.75rem 0;
+    }
+    .logo-img {
+        width: 42px;
+        height: 42px;
+    }
+    .logo-title {
+        font-size: 1.25rem;
+    }
+    
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--white);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        padding: 6rem 2rem 2rem;
+        transition: var(--transition);
+        z-index: 1000;
+    }
+    
+    .main-nav.active {
+        right: 0;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .main-nav a {
+        display: block;
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+    }
+    
+    .btn-donate {
+        margin-left: 0;
+        margin-top: 1rem;
+        display: inline-block;
+    }
+
+}
+
 @media (max-width: 768px) {
     body.nav-open::before {
         content: '';
