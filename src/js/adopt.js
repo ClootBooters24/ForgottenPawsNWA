@@ -97,43 +97,56 @@ document.addEventListener('DOMContentLoaded', function() {
     let isModalClosing = false;
     
     function showModal(type, message) {
-        modal.classList.remove('modal-success', 'modal-error');
-        if (type === 'success') {
-            modal.classList.add('modal-success');
-            modalTitle.textContent = 'Application Submitted!';
-        } else if (type === 'error') {
-            modal.classList.add('modal-error');
-            modalTitle.textContent = 'Submission Error';
-        } else {
-            modalTitle.textContent = 'Please wait...';
-        }
-        modalMessage.textContent = message || '';
+        // console.log('Showing modal:', type, message);
+        
+        // First ensure the modal is visible
+        modal.style.display = 'flex';
         modal.setAttribute('aria-hidden', 'false');
-        isModalClosing = false; // Reset closing flag when showing modal
+        
+        // Clear any previous styling
+        const modalDialog = document.querySelector('.modal-dialog');
+        modalDialog.classList.remove('modal-success', 'modal-error');
+        
+        // Set content based on type
+        if (type === 'success') {
+            modalDialog.classList.add('modal-success');
+            modalTitle.textContent = 'Application Submitted!';
+            modalMessage.textContent = message || 'Thank you for your application!';
+            
+            // Auto-dismiss after 8 seconds
+            clearTimeout(window._submissionModalTimeout);
+            window._submissionModalTimeout = setTimeout(hideModal, 8000);
+            
+        } else if (type === 'error') {
+            modalDialog.classList.add('modal-error');
+            modalTitle.textContent = 'Submission Error';
+            modalMessage.textContent = message || 'An error occurred.';
+            
+        } else {
+            // Loading state
+            modalTitle.textContent = 'Please wait...';
+            modalMessage.textContent = message || 'Submitting your application...';
+            
+            // Remove any success/error styling
+            clearTimeout(window._submissionModalTimeout);
+        }
         
         // Focus the close button for accessibility
         setTimeout(() => {
             modalClose.focus();
         }, 100);
-        
-        // Auto-dismiss after a short time for success
-        clearTimeout(window._submissionModalTimeout);
-        if (type === 'success') {
-            window._submissionModalTimeout = setTimeout(hideModal, 8000);
-        }
     }
     
     function hideModal() {
-        if (isModalClosing) return; // Prevent multiple calls
-        
-        isModalClosing = true;
+        // console.log('Hiding modal');
+        modal.style.display = 'none';
         modal.setAttribute('aria-hidden', 'true');
         clearTimeout(window._submissionModalTimeout);
+        
         // Return focus to submit button
         setTimeout(() => {
-            submitBtn.focus();
-            isModalClosing = false; // Reset flag after animation
-        }, 300);
+            if (submitBtn) submitBtn.focus();
+        }, 100);
     }
     
     // Clean event listeners before adding new ones
@@ -195,19 +208,19 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Show loading state
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        showModal('', 'Please wait — submitting your application...');
-        
         // Validate at least one size preference is selected
         const sizeCheckboxes = document.querySelectorAll('input[name="size_preference"]:checked');
         if (sizeCheckboxes.length === 0) {
             showModal('error', 'Please select at least one size preference.');
             submitBtn.disabled = false;
-            updateFormType(); // Reset button text
+            updateFormType();
             return;
         }
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        showModal('', 'Please wait — submitting your application...');
         
         const formData = new FormData(form);
         const object = Object.fromEntries(formData.entries());
@@ -222,40 +235,54 @@ document.addEventListener('DOMContentLoaded', function() {
             body: json
         })
         .then(async (response) => {
+            // console.log('Response status:', response.status);
+            // console.log('Response ok:', response.ok);
+            
             let data = {};
             try { 
                 data = await response.json(); 
+                // console.log('Response data:', data);
             } catch(e) { 
-                /* ignore parse errors */ 
+                console.log('Response parse error:', e);
+                // Continue anyway, we'll handle below
             }
             
-            if (response.ok) {
+            // Check if response indicates success
+            // Web3Forms returns {success: true, message: "..."} on success
+            if (response.ok && data.success === true) {
                 const type = adoptionRadio.checked ? 'adoption' : 'foster';
                 const message = type === 'adoption' 
                     ? 'Thank you for your adoption application! We will review it and contact you within 3-5 business days.'
                     : 'Thank you for your foster application! We will review it and contact you within 3-5 business days.';
                 
+                // console.log('Submission successful, showing success modal');
                 showModal('success', message);
+                
+                // Reset form
                 form.reset();
-                // Explicitly reset slider since form.reset() doesn't update the display
                 activitySlider.value = 3;
                 updateActivityValue();
+                adoptionRadio.checked = true;
+                updateFormType();
+                
             } else {
                 console.error('Submission error', response, data);
-                showModal('error', (data && data.message) ? data.message : 'Unable to submit your application. Please try again later.');
+                const errorMsg = (data && data.message) 
+                    ? data.message 
+                    : `Submission failed (Status: ${response.status}). Please try again.`;
+                showModal('error', errorMsg);
             }
         })
         .catch((err) => {
-            console.error(err);
-            showModal('error', 'Something went wrong while submitting your application. Please check your connection and try again.');
-            form.reset();
+            console.error('Network error:', err);
+            showModal('error', 'Network error. Please check your connection and try again.');
         })
         .finally(() => {
             submitBtn.disabled = false;
             updateFormType(); // Reset button text
         });
-    });
-    
+    });    
+
     // Initialize form type
     updateFormType();
     
