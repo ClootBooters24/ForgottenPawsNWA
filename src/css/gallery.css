@@ -1,0 +1,20 @@
+main {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    min-height: calc(100vh - 400px);
+}
+
+/* ==== Mobile Queries ==== */
+@media (max-width: 992px) {
+    main {
+        padding: 96px 0 70px;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 88px 0 64px;
+        gap: 1.25rem;
+    }
+}
