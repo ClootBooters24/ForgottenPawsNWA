@@ -1,0 +1,415 @@
+/* ===== Donate Page Styles ===== */
+
+:root {
+    --bg-primary: #FBF6E9;
+    --text-primary: #2B2A21;
+    --text-accent: #7C746D;
+    --accent: #7C7C6C;
+    --error: #CC0000;
+    --white: #FFFFFF;
+}
+
+/* Hero Section */
+.donate-hero {
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.donate-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.03) 75%, rgba(255, 255, 255, 0.03)),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.03) 75%, rgba(255, 255, 255, 0.03));
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.donate-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.donate-hero h1 {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Impact Section */
+.donate-impact {
+    padding: 4rem 2rem;
+    background: var(--bg-primary);
+}
+
+.donate-impact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.impact-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(43, 42, 33, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--accent);
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(43, 42, 33, 0.15);
+    border-top-color: var(--text-primary);
+}
+
+.impact-card h3 {
+    color: var(--text-primary);
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.impact-label {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem !important;
+}
+
+.impact-card p {
+    color: var(--text-accent);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Donate Methods Section */
+.donate-methods {
+    padding: 4rem 2rem;
+    background: var(--white);
+}
+
+.donate-methods h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-accent);
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.payment-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(43, 42, 33, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+}
+
+.payment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(43, 42, 33, 0.15);
+    border-color: var(--accent);
+}
+
+.payment-card.zeffy {
+    border-color: var(--accent);
+}
+
+.payment-card.zeffy .payment-header {
+    background: linear-gradient(135deg, var(--text-primary), var(--accent));
+}
+
+.payment-card.paypal .payment-header,
+.payment-card.venmo .payment-header,
+.payment-card.cashapp .payment-header,
+.payment-card.gofundme .payment-header {
+    background: linear-gradient(135deg, var(--accent), var(--text-accent));
+}
+
+.payment-header {
+    color: white;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.payment-header h3 {
+    font-size: 1.6rem;
+    margin: 0 0 0.75rem 0;
+    font-weight: 700;
+}
+
+.recommended-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.payment-body {
+    padding: 2rem 1.5rem;
+    flex-grow: 1;
+}
+
+.payment-body p {
+    color: var(--text-accent);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+.payment-username {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    margin: 1rem 0;
+    border-left: 3px solid var(--accent);
+}
+
+.payment-username strong {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-family: monospace;
+}
+
+.payment-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.payment-features li {
+    color: var(--text-accent);
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+}
+
+.payment-button {
+    display: block;
+    background: var(--text-primary);
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.payment-button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Other Ways Section */
+.other-ways {
+    padding: 4rem 2rem;
+    background: var(--bg-primary);
+}
+
+.other-ways h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.other-ways-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.other-way-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(43, 42, 33, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--accent);
+}
+
+.other-way-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(43, 42, 33, 0.15);
+    border-top-color: var(--text-primary);
+}
+
+.other-way-card h3 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+}
+
+.other-way-card p {
+    color: var(--text-accent);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+.link-button {
+    display: inline-block;
+    background: var(--text-primary);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.link-button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43, 42, 33, 0.2);
+}
+
+/* Thank You Section */
+.thank-you-section {
+    padding: 4rem 2rem;
+    background: var(--white);
+    text-align: center;
+}
+
+.thank-you-section h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.thank-you-section p {
+    font-size: 1.1rem;
+    color: var(--text-accent);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.nonprofit-note {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    font-size: 0.95rem !important;
+    color: var(--text-accent) !important;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .donate-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .donate-impact h2,
+    .donate-methods h2,
+    .other-ways h2,
+    .thank-you-section h2 {
+        font-size: 2rem;
+    }
+
+    .payment-options,
+    .impact-grid,
+    .other-ways-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .donate-hero {
+        padding: 3rem 1rem;
+    }
+
+    .donate-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .donate-impact,
+    .donate-methods,
+    .other-ways,
+    .thank-you-section {
+        padding: 3rem 1rem;
+    }
+
+    .impact-card,
+    .other-way-card {
+        padding: 1.5rem;
+    }
+
+    .payment-body {
+        padding: 1.5rem 1rem;
+    }
+}
