@@ -8,7 +8,10 @@
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-28DNJKEPND');
+            gtag('config', 'G-28DNJKEPND', {
+                'cookie_flags': 'SameSite=None;Secure'
+            });
+            gtag('event', 'page_view');
         </script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
