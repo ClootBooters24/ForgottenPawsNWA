@@ -124,17 +124,23 @@ body {
     background-color: var(--accent);
 }
 
-.btn-donate {
-    background-color: var(--accent);
+/* Alternative: More prominent button with shadow */
+.nav-donate-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
     color: var(--white) !important;
-    padding: 0.5rem 1.5rem !important;
+    padding: 0.5rem 1.8rem !important;
     border-radius: 50px;
-    margin-left: 1rem;
+    margin-right: 1rem;
+    transition: var(--transition);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
+    border: 2px solid #c0392b;
 }
 
-.btn-donate:hover {
-    background-color: #6B6B5C;
-    transform: translateY(-2px);
+.nav-donate-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
 }
 
 /* Mobile Menu Toggle */
