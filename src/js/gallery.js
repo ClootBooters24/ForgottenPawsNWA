@@ -1,6 +1,7 @@
 function createDogCard(dog) {
     const dogCard = document.createElement('div');
     dogCard.className = 'dog-card';
+    dogCard.style.cursor = 'pointer';
 
     dogCard.innerHTML = `
         <div class="dog-image-container">
@@ -9,19 +10,18 @@ function createDogCard(dog) {
 
         <div class="dog-info">
             <h3>${dog.name}</h3>
-            <p class="breed">${dog.breed}</p>
-            <p class="age">${dog.age}</p>
+            <p class="status">Status: ${dog.status}</p>
+            <p class="breed">Breed: ${dog.breed}</p>
+            <p class="age">Age: ${dog.age}</p>
             <p class="description">${dog.description}</p>
         </div> 
     `;
 
-    const dogImage = dogCard.querySelector('.dog-image');
-    dogImage.addEventListener('click', () => {
-        showAdoptionModal(dog.name, dogCard);
-    });
-
-    dogCard.addEventListener('click', () => {
-        showAdoptionModal(dog.name, dogCard);
+    dogCard.addEventListener('click', (e) => {
+        // Allow clicks on the card and all its children
+        if (dog.status !== "Adopted") {
+            showAdoptionModal(dog.name, dogCard);
+        }
     });
 
     return dogCard;
@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(dogs => { 
             const galleryContainer = document.getElementById('dog-container');
             galleryContainer.innerHTML = '';
+
+            // Sort dogs: Available first, then Adopted
+            dogs.sort((a, b) => {
+                if (a.status === "Available" && b.status !== "Available") return -1;
+                if (a.status !== "Available" && b.status === "Available") return 1;
+                return 0;
+            });
 
             dogs.forEach(dog => {
                 galleryContainer.appendChild(createDogCard(dog));
@@ -71,7 +78,7 @@ function showAdoptionModal(dogName, dogCardElement) {
     
     // Position popup in the center of the dog card
     const rect = dogCardElement.getBoundingClientRect();
-    const popupHeight = 160; // approximate height
+    const popupHeight = 160;
     popup.style.top = (rect.top + window.scrollY + rect.height / 2 - popupHeight / 2) + 'px';
     popup.style.left = (rect.left + rect.width / 2 - 140 + window.scrollX) + 'px';
     
@@ -87,7 +94,7 @@ function closeAdoptionModal() {
 
 document.addEventListener('click', function(event) {
     const popup = document.getElementById('adoptionPopup');
-    if (popup && !popup.contains(event.target) && event.target.className !== 'dog-image') {
+    if (popup && !popup.contains(event.target) && event.target.className !== 'dog-card') {
         closeAdoptionModal();
     }
 });

@@ -3,84 +3,64 @@
         "name": "Buddy",
         "age": 3,
         "breed": "Golden Retriever",
+        "status": "Available",
         "description": "Loves to play fetch and is very friendly.",
         "image": "https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"
     },
     {
-        "name": "Max",
-        "age": 5,
-        "breed": "German Shepherd",
+        "name": "Kitten",
+        "age": 1,
+        "breed": "Tabby cat",
+        "status": "Adopted",
         "description": "Loves to play fetch and is very friendly.",
-        "image": "images/max.jpg"
+        "image": "https://media.forgottenpawsnwa.org/Cat%20Outside.webp"
     },
     {
-        "name": "Bella",
-        "age": 2,
-        "breed": "Labrador Retriever",
+        "name": "I found my forever home!",
+        "age": "Puppy",
+        "breed": "",
+        "status": "Adopted",
         "description": "Loves to play fetch and is very friendly.",
-        "image": "images/bella.jpg"
+        "image": "https://media.forgottenpawsnwa.org/Adoptees%20(15).webp"
     },
     {
-        "name": "Buddy",
-        "age": 3,
-        "breed": "Golden Retriever",
+        "name": "I found my forever home!",
+        "age": "Puppy",
+        "breed": "",
+        "status": "Adopted",
         "description": "Loves to play fetch and is very friendly.",
-        "image": "images/buddy.jpg"
+        "image": "https://media.forgottenpawsnwa.org/Adoptees%20(14).webp"
     },
     {
-        "name": "Max",
-        "age": 5,
-        "breed": "German Shepherd",
+        "name": "I found my forever home!",
+        "age": "",
+        "breed": "",
+        "status": "Adopted",
         "description": "Loves to play fetch and is very friendly.",
-        "image": "images/max.jpg"
+        "image": "https://media.forgottenpawsnwa.org/Adoptees%20(13).webp"
     },
     {
-        "name": "Bella",
-        "age": 2,
-        "breed": "Labrador Retriever",
+        "name": "I found my forever home!",
+        "age": "",
+        "breed": "",
+        "status": "Adopted",
         "description": "Loves to play fetch and is very friendly.",
-        "image": "images/bella.jpg"
+        "image": "https://media.forgottenpawsnwa.org/Adoptees%20(12).webp"
     },
     {
-        "name": "Buddy",
-        "age": 3,
-        "breed": "Golden Retriever",
+        "name": "I found my forever home!",
+        "age": "",
+        "breed": "",
+        "status": "Adopted",
         "description": "Loves to play fetch and is very friendly.",
-        "image": "images/buddy.jpg"
+        "image": "https://media.forgottenpawsnwa.org/Adoptees%20(11).webp"
     },
     {
-        "name": "Max",
-        "age": 5,
-        "breed": "German Shepherd",
+        "name": "I found my forever home!",
+        "age": "",
+        "breed": "",
+        "status": "Adopted",
         "description": "Loves to play fetch and is very friendly.",
-        "image": "images/max.jpg"
-    },
-    {
-        "name": "Bella",
-        "age": 2,
-        "breed": "Labrador Retriever",
-        "description": "Loves to play fetch and is very friendly.",
-        "image": "images/bella.jpg"
-    },
-    {
-        "name": "Buddy",
-        "age": 3,
-        "breed": "Golden Retriever",
-        "description": "Loves to play fetch and is very friendly.",
-        "image": "images/buddy.jpg"
-    },
-    {
-        "name": "Max",
-        "age": 5,
-        "breed": "German Shepherd",
-        "description": "Loves to play fetch and is very friendly.",
-        "image": "images/max.jpg"
-    },
-    {
-        "name": "Bella",
-        "age": 2,
-        "breed": "Labrador Retriever",
-        "description": "Loves to play fetch and is very friendly.",
-        "image": "images/bella.jpg"
+        "image": "https://media.forgottenpawsnwa.org/Adoptees%20(10).webp"
     }
 ]
