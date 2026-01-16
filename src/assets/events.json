@@ -1,13 +1,24 @@
 {
   "events": [
     {
-      "name": "",
-      "date": "",
+      "name": "January Birthday Adoption Special",
+      "startDate": "2026-01-15",
+      "endDate": "2026-01-31",
       "time": "",
-      "location": "",
-      "description": "",
-      "link": "",
-      "status": "cancelled"
+      "location": "Forgotten Paws NWA Shelter",
+      "description": "Heather and Anna both have January birthdays and instead of gifts, we’re paying it forward to the dogs.<br>For the rest of January, adoption fees are WAIVED for our current adoptable pups with a qualifying donation!!! <br>Here’s why:<br>❄️ Cold weather is here!<br>🤰 We are taking in pregnant mamas who need safe, warm space!!<br>🐾 We need our current dogs out of the shelter and into homes so we can help the next ones!!<br>Your donation helps cover:<br>• Vet care<br>• Food<br>• Worming & shots<br>• Heat, bedding, and supplies for incoming moms and puppies<br>You get a dog.<br>A mama gets safety.<br>Puppies get a chance before they’re even born.<br>If you’ve been thinking about adopting this is your sign!!",
+      "status": "confirmed",
+      "link": "https://forgottenpawsnwa.org/donate"
+    },
+    {
+      "name": "Community Adoption Meet and Greet",
+      "startDate": "2026-01-03",
+      "endDate": "2026-01-04",
+      "time": "",
+      "location": "Forgotten Paws NWA Shelter",
+      "description": "Come see us this weekend at our adoption event!!! Weve got tons of puppies needing homes!!!<br>Come adopt a pup!<br>Bring us some supplies,<br>Just come meet us and see what our work is doing!<br>Let's make this a community event!!! Come meet the people behind forgotten paws!!!",
+      "status": "confirmed",
+      "link": "https://forgottenpawsnwa.org/contact"
     }
   ]
 }

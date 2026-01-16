@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Format date for display
+    // Format date for display (single date)
     function formatEventDate(date) {
         if (!date) return 'Date TBD';
         
@@ -54,24 +54,83 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Format date range for display
+    function formatDateRange(startDate, endDate) {
+        if (!startDate || !endDate) return formatEventDate(startDate);
+        
+        // If same day, just show the date
+        if (startDate.getTime() === endDate.getTime()) {
+            return formatEventDate(startDate);
+        }
+        
+        // Same month and year: "January 1-31, 2026"
+        if (startDate.getFullYear() === endDate.getFullYear() && 
+            startDate.getMonth() === endDate.getMonth()) {
+            return `${startDate.toLocaleDateString('en-US', { 
+                month: 'long' 
+            })} ${startDate.getDate()} - ${endDate.getDate()}, ${startDate.getFullYear()}`;
+        }
+        
+        // Same year, different months: "January 1 - February 15, 2026"
+        if (startDate.getFullYear() === endDate.getFullYear()) {
+            return `${startDate.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric' 
+            })} - ${endDate.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
+            })}`;
+        }
+        
+        // Different years: "January 1, 2026 - January 15, 2027"
+        return `${formatEventDate(startDate)} - ${formatEventDate(endDate)}`;
+    }
+    
     // Check if event should be displayed
     function shouldDisplayEvent(event) {
         // Only show confirmed events
         if (event.status !== 'confirmed') {
+            console.log('Event not confirmed:', event.name);
             return false;
         }
         
-        // Parse event date
-        const eventDate = parseEventDate(event.date);
-        if (!eventDate) return false;
+        // Parse event dates - support both single date and date range
+        let eventStartDate, eventEndDate;
+        
+        if (event.date) {
+            // Single date format
+            eventStartDate = parseEventDate(event.date);
+            eventEndDate = eventStartDate;
+        } else if (event.startDate) {
+            // Date range format
+            eventStartDate = parseEventDate(event.startDate);
+            eventEndDate = parseEventDate(event.endDate) || eventStartDate;
+        } else {
+            console.log('Event missing date:', event.name);
+            return false;
+        }
+        
+        if (!eventStartDate || !eventEndDate) {
+            console.log('Invalid date for event:', event.name);
+            return false;
+        }
         
         // Get today's date
         const today = getToday();
         
-        // Show events that are today or in the future
-        return eventDate >= today;
-    }
-    
+        // console.log('Checking dates for', event.name, ':', {
+        //     eventStartDate: eventStartDate.toLocaleDateString(),
+        //     eventEndDate: eventEndDate.toLocaleDateString(),
+        //     today: today.toLocaleDateString(),
+        //     eventEndTimestamp: eventEndDate.getTime(),
+        //     todayTimestamp: today.getTime(),
+        //     shouldDisplay: eventEndDate >= today
+        // });
+        
+        // Show events that are ongoing today or in the future
+        return eventEndDate >= today;
+    }    
     // Load events from JSON file
     async function loadEvents() {
         try {
@@ -93,15 +152,59 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Process and filter events
     function processEvents(events) {
-        // Filter events based on status and date
-        upcomingEvents = events
-            .map(event => ({
-                ...event,
-                parsedDate: parseEventDate(event.date),
-                formattedDate: formatEventDate(parseEventDate(event.date)),
-                status: event.status || 'confirmed'
-            }))
-            .filter(shouldDisplayEvent)
+        // First, map all events to parse their dates
+        const mappedEvents = events
+            .map(event => {
+                // Support both single date and date range formats
+                let startDate, endDate;
+                
+                if (event.date) {
+                    // Single date format
+                    startDate = parseEventDate(event.date);
+                    endDate = startDate;
+                } else if (event.startDate) {
+                    // Date range format
+                    startDate = parseEventDate(event.startDate);
+                    endDate = parseEventDate(event.endDate) || startDate;
+                } else {
+                    console.error('Event missing date:', event);
+                    return null;
+                }
+                
+                if (!startDate || !endDate) {
+                    console.error('Invalid date for event:', event);
+                    return null;
+                }
+                
+                return {
+                    ...event,
+                    parsedDate: startDate, // Keep for backward compatibility
+                    startDate: startDate,
+                    endDate: endDate,
+                    formattedDate: formatDateRange(startDate, endDate),
+                    status: event.status || 'confirmed',
+                    // For backward compatibility with single-date events
+                    date: event.date || event.startDate,
+                    // Determine if it's a single day event
+                    isSingleDay: startDate.getTime() === endDate.getTime()
+                };
+            })
+            .filter(event => event !== null); // Remove null events
+        
+        // Now filter the mapped events (which have parsed dates)
+        upcomingEvents = mappedEvents
+            .filter(event => {
+                // Only show confirmed events
+                if (event.status !== 'confirmed') {
+                    return false;
+                }
+                
+                // Get today's date
+                const today = getToday();
+                
+                // Show events that are ongoing today or in the future
+                return event.endDate >= today;
+            })
             .sort((a, b) => a.parsedDate - b.parsedDate); // Soonest first
         
         // Debug logging
@@ -117,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             showNoEvents();
         }
-    }
+    }    
     
     // Display events in carousel
     function displayEvents() {
@@ -140,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.className = 'event-card';
         card.setAttribute('data-index', index);
         
-        // Get month and day for badge
+        // Get month and day for badge (use start date)
         let month = 'MMM';
         let day = 'DD';
         let statusClass = '';
@@ -167,26 +270,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
         
-        // Check if event is today
+        // Check if event is ongoing today
         const today = getToday();
-        const isToday = event.parsedDate && 
-                       event.parsedDate.getTime() === today.getTime() && 
+        const isToday = event.startDate && 
+                       event.endDate &&
+                       event.startDate <= today && 
+                       event.endDate >= today && 
                        event.status === 'confirmed';
+        
+        // Check if event is multi-day
+        const isMultiDay = !event.isSingleDay;
+        
+        // Format description to preserve line breaks
+        const formattedDescription = event.description ? 
+            event.description.replace(/\n/g, '<br>') : '';
         
         // Build card HTML
         card.innerHTML = `
-            <div class="event-date-badge ${statusClass} ${isToday ? 'today' : ''}">
+            <div class="event-date-badge ${statusClass} ${isToday ? 'today' : ''} ${isMultiDay ? 'multi-day' : ''}">
                 <span class="month">${month}</span>
                 <span class="day">${day}</span>
                 ${statusText ? `<span class="status-badge">${statusText}</span>` : ''}
-                ${isToday ? '<span class="today-badge">Today</span>' : ''}
             </div>
             <div class="event-content">
                 <h3 class="event-title">${event.name}</h3>
                 <div class="event-details">
                     <div class="event-detail">
                         <i>📅</i>
-                        <span><strong>Date:</strong> ${event.formattedDate}</span>
+                        <span><strong>${isMultiDay ? 'Date Range:' : 'Date:'}</strong> ${event.formattedDate}</span>
                     </div>
                     ${event.time ? `
                     <div class="event-detail">
@@ -203,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${event.description ? `
                     <div class="event-detail">
                         <i>📝</i>
-                        <span>${event.description}</span>
+                        <span>${formattedDescription}</span>
                     </div>
                     ` : ''}
                 </div>

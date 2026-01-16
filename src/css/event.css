@@ -583,3 +583,38 @@
         height: 10px;
     }
 }
+
+/* Multi-day event styles */
+.event-date-badge.multi-day {
+    position: relative;
+}
+
+.event-date-badge.multi-day .multi-day-indicator {
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.today-badge {
+    background-color: #ff6b6b;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
