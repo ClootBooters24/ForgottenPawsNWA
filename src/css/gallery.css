@@ -4,17 +4,181 @@ main {
     min-height: calc(100vh - 400px);
 }
 
+.gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+.gallery-header p {
+    font-size: 1.1rem;
+    color: var(--text-accent);
+}
+
+/* === Adoption popup === */
+.adoption-popup {
+    display: none;
+    position: absolute;
+    z-index: 1999;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    width: 280px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--accent);
+}
+
+.adoption-popup.show {
+    display: block;
+}
+
+.adoption-popup h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.adoption-popup p {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.adoption-popup-link {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.adoption-popup-link:hover {
+    transform: translateY(-2px);
+}
+
+.gallery-banner {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* === Dog Image class === */
+.dog-image-container {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--accent);
+}
+
+.dog-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.dog-card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.dog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.dog-info h3 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+/* === Dog Grid === */
+.dog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
 /* ==== Mobile Queries ==== */
+@media (max-width: 1200px) {
+    .dog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .adoption-popup {
+        width: 260px;
+    }
+}
+
 @media (max-width: 992px) {
     main {
         padding: 96px 0 70px;
+    }
+    
+    .dog-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+    }
+    
+    .adoption-popup {
+        width: 240px;
+        padding: 1.25rem;
+    }
+    
+    .adoption-popup h3 {
+        font-size: 1rem;
+    }
+    
+    .adoption-popup-link {
+        padding: 0.4rem 1.25rem;
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 576px) {
     main {
         padding: 88px 0 64px;
+    }
+    
+    .dog-grid {
+        grid-template-columns: 1fr;
         gap: 1.25rem;
+        padding: 0 1rem;
+    }
+    
+    .adoption-popup {
+        width: 150px;
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .adoption-popup h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .adoption-popup p {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .adoption-popup-link {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
     }
 }

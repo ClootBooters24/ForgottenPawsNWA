@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Buddy",
+        "age": 3,
+        "breed": "Golden Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"
+    },
+    {
+        "name": "Max",
+        "age": 5,
+        "breed": "German Shepherd",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/max.jpg"
+    },
+    {
+        "name": "Bella",
+        "age": 2,
+        "breed": "Labrador Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/bella.jpg"
+    },
+    {
+        "name": "Buddy",
+        "age": 3,
+        "breed": "Golden Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/buddy.jpg"
+    },
+    {
+        "name": "Max",
+        "age": 5,
+        "breed": "German Shepherd",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/max.jpg"
+    },
+    {
+        "name": "Bella",
+        "age": 2,
+        "breed": "Labrador Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/bella.jpg"
+    },
+    {
+        "name": "Buddy",
+        "age": 3,
+        "breed": "Golden Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/buddy.jpg"
+    },
+    {
+        "name": "Max",
+        "age": 5,
+        "breed": "German Shepherd",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/max.jpg"
+    },
+    {
+        "name": "Bella",
+        "age": 2,
+        "breed": "Labrador Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/bella.jpg"
+    },
+    {
+        "name": "Buddy",
+        "age": 3,
+        "breed": "Golden Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/buddy.jpg"
+    },
+    {
+        "name": "Max",
+        "age": 5,
+        "breed": "German Shepherd",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/max.jpg"
+    },
+    {
+        "name": "Bella",
+        "age": 2,
+        "breed": "Labrador Retriever",
+        "description": "Loves to play fetch and is very friendly.",
+        "image": "images/bella.jpg"
+    }
+]
