@@ -25,20 +25,60 @@
     <meta property="og:description" content="Learn about our mission to rescue and rehome forgotten animals in Northwest Arkansas."/>
     <meta property="og:image" content="https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"/>
     
-    <!-- JSON-LD Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "AboutPage",
-        "name": "About Forgotten Paws of NWA",
-        "description": "501(c)(3) animal rescue providing shelter, veterinary care, and new homes for abandoned dogs in Northwest Arkansas.",
-        "publisher": {
+        <!-- JSON-LD -->
+        <!-- 1. Website Identity Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://www.forgottenpawsnwa.org",
+            "name": "Forgotten Paws of NWA",
+            "description": "Forgotten Paws of NWA is a 501(c)(3) animal rescue in Tontitown, AR. We take in dumped and at-risk dogs, providing safety, clean kennels, vet care, food, and stability until they're placed in loving homes.",
+            "image": "https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"
+        }
+        </script>
+
+        <!-- 2. Organization Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
             "@type": "Organization",
             "name": "Forgotten Paws of NWA",
-            "url": "https://www.forgottenpawsnwa.org"
+            "image": "https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp",
+            "legalName": "FOR LUV OF FORGOTTEN PAWS (DBA Forgotten Paws of NWA)",
+            "address": "3851 Old Highway 68, Tontitown, AR 72762",
+            "telephone": "479-770-3766",
+            "sameAs": [
+                "https://www.facebook.com/p/Forgotten-Paws-of-Northwest-Arkansas-61581905645970/"
+            ]
         }
-    }
-    </script>
+        </script>
+
+        <!-- 3. Local Business Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "AnimalShelter",
+            "name": "Forgotten Paws of NWA",
+            "image": "https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3851 Old Highway 68",
+                "addressLocality": "Tontitown",
+                "addressRegion": "AR",
+                "postalCode": "72762",
+                "addressCountry": "US"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 36.1821733,
+                "longitude": -94.2996422
+            },
+            "telephone": "479-770-3766",
+            "priceRange": "$"
+        }
+        </script>
+
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/headers.css">
