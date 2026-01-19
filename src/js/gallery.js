@@ -73,7 +73,7 @@ function showAdoptionModal(dogName, dogCardElement) {
     popup.innerHTML = `
         <h3>Ready to Adopt ${dogName}?</h3>
         <p>Visit our adoption page to help ${dogName} find a home</p>
-        <a href="./adopt" class="adoption-popup-link">Apply to Adopt</a>
+        <a href="/adopt" class="adoption-popup-link">Apply to Adopt</a>
     `;
     
     // Position popup in the center of the dog card
