@@ -15,6 +15,6 @@
 /404.html           /404              301
 
 # Optional: Force HTTPS and www
-http://forgottenpawsnwa.org/*     https://www.forgottenpawsnwa.org/:splat  301
-https://forgottenpawsnwa.org/*    https://www.forgottenpawsnwa.org/:splat  301
-http://www.forgottenpawsnwa.org/* https://www.forgottenpawsnwa.org/:splat  301
+# http://forgottenpawsnwa.org/*     https://www.forgottenpawsnwa.org/:splat  301
+# https://forgottenpawsnwa.org/*    https://www.forgottenpawsnwa.org/:splat  301
+# http://www.forgottenpawsnwa.org/* https://www.forgottenpawsnwa.org/:splat  301
