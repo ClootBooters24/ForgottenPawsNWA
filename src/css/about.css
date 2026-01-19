@@ -342,6 +342,13 @@
     color: #2a2d34;
 }
 
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 400px;
+}
+
 /* CTA Section */
 .cta-section {
     background: linear-gradient(135deg, #2a2d34 0%, #3a3f48 100%);
