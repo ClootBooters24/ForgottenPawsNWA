@@ -1,14 +1,20 @@
-/index.html / 301
-/contact.html /contact 301
-/adopt.html /adopt 301
-/volunteer.html /volunteer 301
-/about.html /about 301
-/gallery.html /gallery 301
-/donate.html /donate 301
+# Redirect .html versions to clean URLs
+/index.html         /                 301
+/contact.html       /contact          301
+/adopt.html         /adopt            301
+/volunteer.html     /volunteer        301
+/about.html         /about            301
+/gallery.html       /gallery          301
+/donate.html        /donate           301
 
-/legal/terms.html /legal/terms 301
-/legal/privacy.html /legal/privacy 301
-/legal/volunteer-code-of-conduct.html /legal/volunteer-code-of-conduct 301
-/legal/animal-liability.html /legal/animal-liability 301
+/legal/terms.html                     /legal/terms                      301
+/legal/privacy.html                   /legal/privacy                    301
+/legal/volunteer-code-of-conduct.html /legal/volunteer-code-of-conduct  301
+/legal/animal-liability.html          /legal/animal-liability           301
 
-/404.html /404 301
+/404.html           /404              301
+
+# Optional: Force HTTPS and www
+http://forgottenpawsnwa.org/*     https://www.forgottenpawsnwa.org/:splat  301
+https://forgottenpawsnwa.org/*    https://www.forgottenpawsnwa.org/:splat  301
+http://www.forgottenpawsnwa.org/* https://www.forgottenpawsnwa.org/:splat  301
