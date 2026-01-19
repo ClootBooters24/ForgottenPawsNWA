@@ -2,7 +2,7 @@
 
 A responsive, SEO-optimized website for Forgotten Paws of NWA, a 501(c)(3) animal rescue organization in Tontitown, AR.
 
-## 🌟 Features
+## Features
 
 - **100% Responsive Design** - Mobile-first approach works on all devices
 - **SEO Optimized** - Schema markup, canonical URLs, sitemap, and meta tags
@@ -12,7 +12,7 @@ A responsive, SEO-optimized website for Forgotten Paws of NWA, a 501(c)(3) anima
 - **Legal Compliance** - Complete legal documentation (Terms, Privacy, Waivers)
 - **Event Management** - Upcoming events section with dynamic loading
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 forgottenpawsnwa.org/
@@ -52,7 +52,7 @@ forgottenpawsnwa.org/
     └── animal-liability.html
 ```
 
-## 🚀 Setup & Deployment
+## Setup & Deployment
 
 ### Prerequisites
 - Cloudflare Pages account
@@ -105,7 +105,7 @@ Each HTML file includes:
 - Open Graph and Twitter Card meta tags
 - JSON-LD structured data (Organization, AnimalShelter schemas)
 
-## 📝 Forms Integration
+## Forms Integration
 
 The site uses **Web3Forms** for all form submissions:
 
@@ -118,7 +118,7 @@ The site uses **Web3Forms** for all form submissions:
 - Adoption form: `access_key=""`
 - Volunteer form: `access_key=""`
 
-## 🖼️ Media Assets
+## Media Assets
 
 All images are hosted at `https://media.forgottenpawsnwa.org/` and:
 - Use `.webp` format for better compression
@@ -126,7 +126,7 @@ All images are hosted at `https://media.forgottenpawsnwa.org/` and:
 - Have appropriate dimensions specified
 - Use lazy loading for performance
 
-## 🔍 SEO Best Practices Implemented
+## SEO Best Practices Implemented
 
 1. **URL Structure**: Clean, human-readable URLs without `.html`
 2. **Canonical Tags**: Every page specifies its canonical URL
@@ -136,19 +136,19 @@ All images are hosted at `https://media.forgottenpawsnwa.org/` and:
 6. **Mobile Responsiveness**: Google Mobile-Friendly compliant
 7. **Page Speed**: Optimized images, minimal render-blocking resources
 
-## 📊 Analytics & Tracking
+## Analytics & Tracking
 
 - **Google Analytics 4**: Tracking ID ``
 - Configured with `SameSite=None;Secure` cookies for cross-domain tracking
 - Page view events on all pages
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
 - **Mobile**: < 768px
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
-## 🛠️ Maintenance
+## Maintenance
 
 ### Updating Content
 1. **Text/Images**: Edit corresponding HTML/CSS files
@@ -163,7 +163,7 @@ All images are hosted at `https://media.forgottenpawsnwa.org/` and:
 4. Update `sitemap.xml`
 5. Test all internal links
 
-## 📄 Legal Compliance
+## Legal Compliance
 
 The site includes:
 - **Terms of Service** (`/legal/terms`)
@@ -173,7 +173,7 @@ The site includes:
 
 All legal documents are dated and include required disclaimers.
 
-## 🐛 Common Issues & Solutions
+## Common Issues & Solutions
 
 ### Issue: 404 errors for `.html` URLs
 **Solution**: Ensure `_redirects` file is correctly formatted and deployed
@@ -190,7 +190,7 @@ All legal documents are dated and include required disclaimers.
 ### Issue: Images not loading
 **Solution**: Verify image URLs at `media.forgottenpawsnwa.org` are accessible
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -198,7 +198,7 @@ All legal documents are dated and include required disclaimers.
 4. Test thoroughly (responsiveness, forms, links)
 5. Submit pull request
 
-## 📞 Contact & Support
+## Contact & Support
 
 - **Organization**: Forgotten Paws of NWA
 - **Email**: forgottenpawsnwa@gmail.com
@@ -206,9 +206,9 @@ All legal documents are dated and include required disclaimers.
 - **Address**: 3851 Old Highway 68, Tontitown, AR 72762
 - **Developer**: [Clayton Warstler](https://ClootBooters24.github.io)
 
-## 📄 License
+## License
 
-© 2024 FOR LUV OF FORGOTTEN PAWS (DBA Forgotten Paws of NWA). All rights reserved.
+© 2026 FOR LUV OF FORGOTTEN PAWS (DBA Forgotten Paws of NWA). All rights reserved.
 
 - **EIN**: 39-4747707
 - **Status**: 501(c)(3) Nonprofit Organization
