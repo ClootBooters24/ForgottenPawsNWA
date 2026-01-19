@@ -19,7 +19,7 @@
     overflow: hidden;
 }
 
-.donate-hero::before {
+/* .donate-hero::before {
     content: '';
     position: absolute;
     top: 0;
@@ -30,7 +30,7 @@
                 linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.03) 75%, rgba(255, 255, 255, 0.03));
     background-size: 60px 60px;
     background-position: 0 0, 30px 30px;
-}
+} */
 
 .donate-hero .container {
     position: relative;
