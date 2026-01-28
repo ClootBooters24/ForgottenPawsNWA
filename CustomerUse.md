@@ -24,12 +24,38 @@ This document provides instructions on how to add new images to the Cloudflare R
    - Open the JSON file in a text editor.
    - Add a new entry for each image you uploaded. The format should be as follows:
      ```json
-     {
-       "image": "URL_TO_YOUR_IMAGE",
-       "description": "A brief description of the image"
-     }
+     "events": [
+        {
+        ...
+        },
+        {
+            "name": "Event Name",
+            "startDate": "YYYY-MM-DD",
+            "endDate": "YYYY-MM-DD",
+            "time": "Event Time",
+            "location": "Event Location",
+            "description": "A brief description of the event.",
+            "status": "confirmed",
+            "link": "URL_TO_EVENT"
+        }
+     ]
      ```
-   - Replace `URL_TO_YOUR_IMAGE` with the direct link to the image in the R2 bucket.
+or
+  ```json
+      [
+          {
+              ...
+          },
+          {
+              "name": "Dog Name",
+              "age": "Dog Age",
+              "breed": "Dog Breed",
+              "status": "Available",
+              "description": "A brief description of the dog.",
+              "image": "URL_TO_DOG_IMAGE"
+          }
+      ]
+  ```
 
 5. **Save Changes.**  
    - After updating the JSON file, save your changes and commit them to the repository.
