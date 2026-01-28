@@ -82,7 +82,7 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-## 🔧 Configuration Files
+## Configuration Files
 
 ### 1. `_redirects` File
 Critical for URL structure. Must be in root directory:
