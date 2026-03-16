@@ -1,27 +1,11 @@
 [
     {
-        "name": "Buddy",
-        "age": 3,
-        "breed": "Golden Retriever",
-        "status": "Available",
-        "description": "Loves to play fetch and is very friendly.",
-        "image": "https://media.forgottenpawsnwa.org/ForgottenPawsNWALogo.webp"
-    },
-    {
         "name": "Stevie or Fanny",
         "age": "Puppy",
         "breed": "Catahoula Hound mix",
         "status": "Available",
         "description": "We need someone that loves special needs babies! We believe this guy is blind. Most shelters would put him down, but we think he’s got a shot at a good life in the right home! References and/or previous experience with a special needs dog required.",
         "image": "https://media.forgottenpawsnwa.org/BlindPuppy.webp"
-    },
-    {
-        "name": "Moon",
-        "age": "Puppy",
-        "breed": "",
-        "status": "Available",
-        "description": "Someone needs to adopt moon before I do… she’s 12-15 weeks old, belly full of worms (we can fix that) and she’s getting spayed and bloodwork done! Now let’s talk about her personality…<br>She is potty trained (scared pees a little but that’ll stop) she’s so sweet and knows she was rescued. Those make the best dogs. She’s gentle and sweet. Wonderful girl.",
-        "image": "https://media.forgottenpawsnwa.org/moonPuppy.webp"
     },
     {
         "name": "Kitten",
