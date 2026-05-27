@@ -202,7 +202,7 @@ All legal documents are dated and include required disclaimers.
 
 - **Organization**: Forgotten Paws of NWA
 - **Email**: forgottenpawsnwa@gmail.com
-- **Phone**: 479-770-3766 or 479-644-7951
+- **Phone**: 479-422-3577 or 479-644-7951
 - **Address**: 3851 Old Highway 68, Tontitown, AR 72762
 - **Developer**: [Clayton Warstler](https://ClootBooters24.github.io)
 
