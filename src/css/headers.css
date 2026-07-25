@@ -104,6 +104,7 @@ body {
     padding: 0.5rem 0;
     position: relative;
     transition: var(--transition);
+    white-space: nowrap;
 }
 
 .main-nav a:hover {
@@ -178,7 +179,7 @@ body {
 }
 
 /* ==== Mobile Queries ==== */
-@media (max-width: 966px) {
+@media (max-width: 1100px) {
     body.nav-open::before {
         content: '';
         position: fixed;

@@ -1,6 +1,7 @@
 // events.js - Carousel Events System
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
+    const eventsSection = document.querySelector('.upcoming-events');
     const eventsContainer = document.getElementById('events-container');
     const prevBtn = document.getElementById('prev-event');
     const nextBtn = document.getElementById('next-event');
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalEventsSpan = document.getElementById('total-events');
     const noEventsMessage = document.querySelector('.no-events-message');
     const eventsDotsContainer = document.getElementById('events-dots');
+    const eventsNavigation = document.querySelector('.events-navigation');
     
     // State variables
     let upcomingEvents = [];
@@ -421,21 +423,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Show "no events" message
     function showNoEvents() {
-        eventsContainer.style.display = 'none';
-        document.querySelector('.events-navigation').style.display = 'none';
+        if (eventsSection) {
+            eventsSection.style.display = 'none';
+        }
+        if (eventsContainer) {
+            eventsContainer.style.display = 'none';
+        }
+        if (eventsNavigation) {
+            eventsNavigation.style.display = 'none';
+        }
         if (eventsDotsContainer) eventsDotsContainer.style.display = 'none';
-        noEventsMessage.style.display = 'block';
+        if (noEventsMessage) noEventsMessage.style.display = 'none';
     }
     
     // Show error message
     function showError() {
+        if (eventsSection) {
+            eventsSection.style.display = '';
+        }
         eventsContainer.innerHTML = `
             <div class="no-events-message" style="display: block;">
                 <p>Unable to load events at this time.</p>
                 <p>Please check our <a href="https://facebook.com/forgottenpawsnwa" target="_blank">Facebook page</a> for updates.</p>
             </div>
         `;
-        document.querySelector('.events-navigation').style.display = 'none';
+        if (eventsNavigation) {
+            eventsNavigation.style.display = 'none';
+        }
         if (eventsDotsContainer) eventsDotsContainer.style.display = 'none';
     }
     
