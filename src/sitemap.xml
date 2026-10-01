@@ -42,6 +42,10 @@
         <loc>https://www.forgottenpawsnwa.org/legal/animal-liability</loc>
         <priority>0.70</priority>
     </url>
+    <url>
+        <loc>https://www.forgottenpawsnwa.org/legal/health-infectious-disease</loc>
+        <priority>0.70</priority>
+    </url>
 
     <!-- 404 -->
     <url>
